@@ -2,6 +2,8 @@
 
 /** @var \Laravel\Lumen\Routing\Router $router */
 
+require_once __DIR__.'/../vendor/autoload.php';
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -13,6 +15,16 @@
 |
 */
 
-$router->get('/', function () use ($router) {
+/*$router->get('/', function () use ($router) {
     return $router->app->version();
-});
+});*/
+
+$router->group(['prefix'=>'api/v1'], 
+function() use($router)
+    {
+        $router->get('/', 'Controller@index');
+        $router->get('/firewallrules', 'Controller@listfirewallrules');
+        $router->get('/firewallrules/{id}', 'Controller@showfirewallrule');
+        $router->put('/firewallrules/{id}', 'Controller@updatefirewallrule');
+    }
+);
