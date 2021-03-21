@@ -2,7 +2,9 @@
 version: "2.4"
 services:
   web:
-      image: unifi-parental-control-web-image
+      build: 
+        dockerfile: ./docker/nginx/Dockerfile
+        context: .
       ports:
         - "8051:80"
       volumes:
@@ -11,7 +13,9 @@ services:
         - php
 
   php:
-      image: unifi-parental-control-api-image 
+      build: 
+        dockerfile: ./docker/php-fpm/Dockerfile
+        context: .
       volumes:
         - ./log.ini:/usr/local/etc/php-fpm.d/zz-log.ini
         - ./api-variables.env:/app/.env
