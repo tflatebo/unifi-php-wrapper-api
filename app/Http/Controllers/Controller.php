@@ -18,8 +18,7 @@ class Controller extends BaseController
          * initialize the Unifi API connection class, log in to the controller and request the alarms collection
          * (this example assumes you have already assigned the correct values to the variables used)
          */
-//        $unifi_connection = new Unifi_Client($_ENV["UNIFI_USER"], $_ENV["UNIFI_PASS"], $_ENV["UNIFI_URI"], $_ENV["UNIFI_SITE"], $_ENV["UNIFI_VERSION"], false);
-        $unifi_connection = new Unifi_Client(getenv("UNIFI_USER"), getenv("UNIFI_PASS"), getenv("UNIFI_URI"), getenv("UNIFI_SITE"), getenv("UNIFI_VERSION"), false);
+        $unifi_connection = new Unifi_Client($_ENV["UNIFI_USER"], $_ENV["UNIFI_PASS"], $_ENV["UNIFI_URI"], $_ENV["UNIFI_SITE"], $_ENV["UNIFI_VERSION"], false);
         $login            = $unifi_connection->login();
         $results          = $unifi_connection->list_firewallrules(); // returns a PHP array containing alarm objects
 
