@@ -19,7 +19,7 @@ require_once __DIR__.'/../vendor/autoload.php';
     return $router->app->version();
 });*/
 
-$router->group(['prefix'=>'api/v1'], 
+$router->group(['prefix'=>''], 
 function() use($router)
     {
         $router->get('/', 'Controller@index');
