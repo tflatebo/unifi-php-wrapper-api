@@ -1,3 +1,8 @@
+# Run with docker-compose for development
+``` 
+docker-compose -f docker-compose.yml.dev up
+```
+
 # Build locally
 ```
 docker build -t unifi-parental-control-api-php-image -f docker/php-fpm/Dockerfile .
